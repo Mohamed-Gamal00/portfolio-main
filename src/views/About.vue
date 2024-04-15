@@ -35,7 +35,7 @@ import { useDisplay } from "vuetify";
 import PersonalInfo from "../components/PersonalInfo.vue";
 import ContactInfo from "../components/ContactInfo.vue";
 import Skills from "../components/Skills.vue";
-import Timelines from "../components/Timelines.vue";
+import Timelines from "../components/landing/Timelines.vue";
 import Languages from "../components/Languages.vue";
 
 defineComponent({

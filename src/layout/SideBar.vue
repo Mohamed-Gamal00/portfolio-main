@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-navigation-drawer
+      style="position: fixed"
       elevation="0"
       v-model="drawer"
       width="300"

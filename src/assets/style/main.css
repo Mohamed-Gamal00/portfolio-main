@@ -1,0 +1,25 @@
+.h5-css {
+  overflow: hidden;
+  text-align: center;
+}
+
+.h5-css::before,
+.h5-css::after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 5%;
+}
+
+.h5-css::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.h5-css::after {
+  left: 0.5em;
+  margin-right: -50%;
+}

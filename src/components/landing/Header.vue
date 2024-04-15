@@ -2,7 +2,7 @@
   <v-container class="py-lg-15">
     <v-row class="align-center">
       <!-- text -->
-      <v-col cols="12" xs="6" sm="6" lg="7" xl="7">
+      <v-col cols="12" md="7" xs="6" sm="7" lg="7" xl="7">
         <v-card elevation="0" color="transparent">
           <v-card-text>
             <p>Welcome to my portfolio website!</p>
@@ -14,14 +14,7 @@
             </h1>
           </v-card-text>
           <v-card-text>
-            <p
-              style="
-                font-size: 18px;
-                font-weight: 300;
-                line-height: 1.5;
-                color: #5b5b5b;
-              "
-            >
+            <p style="font-size: 18px; font-weight: 300; line-height: 1.5">
               Building a successful product is a challenge. I am highly
               energetic in user experience design, interfaces and web
               development.
@@ -43,13 +36,12 @@
                   >Get a free quote</v-btn
                 >
               </v-col>
-              
             </v-row>
           </v-card-actions>
         </v-card>
       </v-col>
       <!-- img -->
-      <v-col cols="12" xs="6" sm="6" lg="5" xl="5" class="text-center">
+      <v-col cols="12" md="5" xs="6" sm="5" lg="5" xl="5" class="text-center">
         <VCard color="transparent" elevation="0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
             <g id="freepik--background-simple--inject-189">
@@ -884,7 +876,11 @@
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { useDisplay } from "vuetify";
+const { xs, sm, md, lg, xlAndUp } = useDisplay();
+
+</script>
 
 <style scoped>
 .custom-btn {
