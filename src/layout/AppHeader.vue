@@ -1,9 +1,15 @@
 <template>
-  <v-app-bar style="position: fixed;" scroll-behavior="elevate" elevation="1" height="100">
+  <v-app-bar
+    style="position: fixed"
+    scroll-behavior="elevate"
+    elevation="0"
+    height="100"
+  >
     <v-container>
       <v-row class="align-center">
-        <v-col cols="3">
+        <v-col cols="3 d-flex align-center">
           <v-btn
+            :ripple="false"
             class="pl-7"
             :prepend-icon="
               theme.global.name.value === 'customLightTheme'
@@ -13,6 +19,15 @@
             @click="$emit('ParentOnToggleTheme')"
           >
           </v-btn>
+
+          <div class="mx-lg-5">
+            <span v-if="theme.global.name.value === 'customLightTheme'">
+              <img src="@/assets/images/black-logo.webp" :height="xl?'60':'40'" alt="" />
+            </span>
+            <span v-if="theme.global.name.value != 'customLightTheme'">
+              <img src="@/assets/images/white-logo.webp" :height="xl?'60':'40'" alt="" />
+            </span>
+          </div>
         </v-col>
         <!-- search -->
         <v-spacer></v-spacer>
@@ -21,14 +36,7 @@
           class="d-md-inline d-sm-inline d-xs-none d-none d-lg-inline"
         >
           <div class="position-relative" style="width: 90%">
-            <input
-              type="search"
-              name="navSearch"
-              id="navSearch"
-              style="width: 100%; border-radius: 30px; outline: none"
-              placeholder="search the store"
-              class="py-3 px-5 bg-white"
-            />
+            <input type="hidden" />
             <svg
               style="
                 position: absolute;
@@ -89,7 +97,10 @@
 </template>
 
 <script setup>
-import { inject, toRefs, onMounted } from "vue";
+import { useDisplay } from "vuetify";
+const { xs, sm, md, lg, xl, xlAndUp } = useDisplay();
+
+import { inject, onMounted } from "vue";
 // const props = defineProps({ theme: Object });
 // const { theme } = toRefs(props);
 import { useTheme } from "vuetify";

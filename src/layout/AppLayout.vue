@@ -2,10 +2,11 @@
   <v-app>
     <v-layout>
       <SideBar :data="data" />
-      <v-main>
+      <v-main class="">
+        <AppHeader @ParentOnToggleTheme="onToggleTheme"/>
         <slot></slot>
+        <AppFooter />
       </v-main>
-      <AppHeader @ParentOnToggleTheme="onToggleTheme"/>
     </v-layout>
   </v-app>
 </template>
@@ -13,6 +14,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import AppHeader from "./AppHeader.vue";
+import AppFooter from "./AppFooter.vue";
 import SideBar from "./SideBar.vue";
 const data = ref([
   { name: "Inbox", icon: "mdi-inbox-arrow-down" },
@@ -22,6 +24,7 @@ const data = ref([
 ]);
 
 import { useTheme } from "vuetify";
+import AppFooterVue from "./AppFooter.vue";
 const theme = useTheme();
 const setTheme = () => {
   // theme.global.name.value = selectedTheme.value;
@@ -43,34 +46,6 @@ onMounted(() => {
     : setTheme();
     // console.log(theme)
 });
-/* start theme config */
-// const theme = ref(getBrowserTheme());
-// onMounted(() => {
-//   localStorage.hasOwnProperty("theme")
-//     ? (theme.value = getTheme())
-//     : setTheme();
-// });
-
-// function onToggleTheme() {
-//   theme.value = theme.value === "dark" ? "light" : "dark";
-//   setTheme();
-// }
-
-// function getBrowserTheme() {
-//   return window.matchMedia &&
-//     window.matchMedia("(prefers-color-scheme: dark)").matches
-//     ? "light"
-//     : "dark";
-// }
-
-// function setTheme() {
-//   localStorage.setItem("theme", JSON.stringify(theme.value));
-// }
-
-// function getTheme() {
-//   return JSON.parse(localStorage.getItem("theme"));
-// }
-/* end theme config */
 </script>
 
 <style lang="scss" scoped></style>
